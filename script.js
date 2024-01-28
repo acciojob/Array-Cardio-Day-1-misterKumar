@@ -28,28 +28,25 @@ const people = [
 
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's and return the filtered array
-function myfilter() {
-	const fifteen = inventors.filter(inventor => {
-		if(inventor.year >= 1500 && inventor.year<1600){
-			console.log(inventor)
-			return inventor;
-		}
-	})
+export function myfilter() {
+   Const inventorBorn = inventor.filter((inventor) => inventor.year >= 1500 && inventor.year<1600);
+	return inventorborn;
 }
-myfilter()
 
 // Array.prototype.map()
 // 2. Give us an array of the inventor first and last names (i.e. full name)
 // Ex: For the first inventor the full name will be 'Albert Einstein'
 export function map() {
-
+    const inventorName = inventor.map((inventor) => `${inventor.first} ${inventor.last}`);
+	return inventorname;
 }
 
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest and return the sorted array
 export function sort() {
-
+         const inventorbirth = inventors.sort((a,b) => a.year - b.year);
+	   return inventorbirth;
 }
 
 
@@ -57,18 +54,31 @@ export function sort() {
 // 4. How many years did all the inventors live?
 // Return the total number of years all the inventors lived
 export function reduce() {
-
+        const inventorlives = inventors.reduce((total,inventors) => {
+			return total + (inventors.passed - inventors.year);},0);
+		    return inventorlives;
+		
 }
 
 // 5. Sort the inventors by years lived and return the sorted array
 export function sortbylived() {
-
+             const inventorlived = inventors.sort((a,b)) => {
+				 const inventorA = a.passed - a.year;
+				 const inventorB = b.passed - b.year;
+				 return inventorB - inventorA;
+			 };
+	       return inventorlived;
 }
 
 // 6. sort Exercise
 // Sort the people alphabetically by last name and return the sorted array
 export function sortByLastName() {
-
+         const peoplelastname = inventor.sort((a,b) =>{
+			 const lastnameA = a.split(' , ');
+			 const lastnameB = b.split(' , ');
+			 return lastnameA.localeCompare(lastnameB);
+			 });
+	return peoplelastname;
 }
 
 // 7. Reduce Exercise
@@ -77,4 +87,9 @@ const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bik
 
 export function reducedSum() {
     // Return an object containing transports as key and its number of occurances as the key's value
+	const transportCounts = data.reduce((count, transport) => {
+    count[transport] = (count[transport] || 0) + 1;
+    return count;
+  }, {});
+  return transportCounts;
 }
