@@ -94,17 +94,12 @@ export function sortByLastName() {
 
     return 0;
   });*/
-	people.sort((str1,str2)=>{
-        if(str1<str2){
-            return -1;
-        }
-        else if(str1>str2){
-            return 1;
-        }
-        return 0;
+	const alpha = people.sort((lastOne, nextOne) => {
+        const [aLast, aFirst] = lastOne.split(', ');
+        const [bLast, bFirst] = nextOne.split(', ');
+        return aLast > bLast ? 1 : -1;
     });
-
-     return people;
+    return alpha;
 }
 
 // 7. Reduce Exercise
